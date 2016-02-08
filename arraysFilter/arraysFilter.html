@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-5">
+        <label>Пошук: </label>
+        <input type="text" ng-model="vm.search"/>
+        <br/><br/>
+
+        <label>Масив об'єктів:</label>
+        <div ng-repeat="item in vm.arr1 | filter:vm.search">
+            { value: {{item.value}}, text: {{item.text}} },
+        </div>
+    </div>
+
+    <div class="col-md-7">
+        <label>Введіть значення параметру <span style="color: red">value</span> для сортування масиву об'єктів (через кому):</label>
+        <input type="text" ng-model="vm.listInput" ng-list/>
+        {{vm.listInput}}
+        <br/><br/>
+
+        <button class="btn btn-success" ng-click="vm.clickFilter()">Фільтрувати масив</button>
+        <br/><br/>
+
+        <div ng-if="vm.newArray.length != 0">
+            <label>Відфільтровано масив об'єктів:</label>
+            <div ng-repeat="item in vm.newArray">
+                { value: {{item.value}}, text: {{item.text}} },
+            </div>
+        </div>
+    </div>
+</div>
